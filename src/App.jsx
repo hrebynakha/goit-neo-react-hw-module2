@@ -4,28 +4,12 @@ import Options from "./components/Options/Options";
 import Feedback from "./components/Feedback/Feedback";
 import { useEffect, useState } from "react";
 import Notification from "./components/Notification/Notification";
-
-const defaultFeedback = {
-  good: 0,
-  neutral: 0,
-  bad: 0,
-};
-
-function calcFeedbackTotal(feedback) {
-  return feedback.good + feedback.neutral + feedback.bad;
-}
-
-function calcFeedbackPositive(feedback) {
-  return Math.round((feedback.good / calcFeedbackTotal(feedback)) * 100);
-}
-
-function getInitialFeedback() {
-  const feedback = localStorage.getItem("feedback");
-  if (feedback !== null) {
-    return JSON.parse(feedback);
-  }
-  return defaultFeedback;
-}
+import {
+  getInitialFeedback,
+  calcFeedbackTotal,
+  calcFeedbackPositive,
+} from "./helpers/feedback";
+import { defaultFeedback, FEEDBACK_KEY } from "../feedback.config";
 
 function App() {
   const [feedback, setFeedback] = useState(getInitialFeedback);
@@ -46,17 +30,17 @@ function App() {
   };
 
   useEffect(() => {
-    localStorage.setItem("feedback", JSON.stringify(feedback));
+    localStorage.setItem(FEEDBACK_KEY, JSON.stringify(feedback));
   }, [feedback]);
 
   return (
     <>
       <Description />
       <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} />
-      {totalFeedback === 0 ? (
-        <Notification />
-      ) : (
+      {totalFeedback > 0 ? (
         <Feedback feedback={feedback} positiveFeedback={positiveFeedback} />
+      ) : (
+        <Notification />
       )}
     </>
   );
