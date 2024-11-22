@@ -1,6 +1,12 @@
 body {
   font-family: sans-serif;
   line-height: 1.5;
+  margin: 0;
+  background: linear-gradient(#c9d6ff, #e2e2e2);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-style: normal;
 }
 
 h1,

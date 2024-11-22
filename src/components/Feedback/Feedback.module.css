@@ -1,5 +1,18 @@
 .feedbackList {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   flex-direction: column;
+  gap: 5px;
+  background-color: rgb(243, 240, 236);
+  border-radius: 20px;
+  padding: 20px 0;
+  max-width: 280px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .feedbackList {
+    max-width: calc(4 * 120px + 3 * 26px);
+  }
 }

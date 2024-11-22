@@ -1,8 +1,7 @@
-.optionsList {
+.feedbackItem {
   display: flex;
-  flex-wrap: wrap;
-  gap: 26px;
-  margin-top: 20px;
   align-items: center;
   justify-content: center;
+  gap: 5px;
+  padding: 5px;
 }

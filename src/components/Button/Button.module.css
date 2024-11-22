@@ -1,4 +1,44 @@
 .btn {
   text-transform: capitalize;
   padding: 10px 20px;
+  border-radius: 12px;
+  width: 120px;
+  outline: transparent;
+  border: none;
+  color: rgb(17, 14, 14);
+  background-color: #4477e6;
+  cursor: pointer;
+  transition: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: background-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: sans-serif;
+}
+
+.btn:hover {
+  background-color: #a6a6e5;
+}
+
+.good {
+  composes: btn;
+  color: rgb(17, 14, 14);
+  background-color: #8dd3be;
+}
+
+.neutral {
+  composes: btn;
+  color: rgb(17, 14, 14);
+  background-color: #cecbda;
+}
+
+.bad {
+  composes: btn;
+  background-color: #d3a18d;
+}
+
+.reset {
+  composes: btn;
+  background-color: #d3c88a;
 }

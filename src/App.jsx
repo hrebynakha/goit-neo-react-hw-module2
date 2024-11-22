@@ -10,6 +10,7 @@ import {
   calcFeedbackPositive,
 } from "./helpers/feedback";
 import { defaultFeedback, FEEDBACK_KEY } from "../feedback.config";
+import Container from "./components/Container/Container";
 
 function App() {
   const [feedback, setFeedback] = useState(getInitialFeedback);
@@ -34,7 +35,7 @@ function App() {
   }, [feedback]);
 
   return (
-    <>
+    <Container>
       <Description />
       <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} />
       {totalFeedback > 0 ? (
@@ -42,7 +43,7 @@ function App() {
       ) : (
         <Notification />
       )}
-    </>
+    </Container>
   );
 }
 
