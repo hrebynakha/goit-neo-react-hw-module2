@@ -2,15 +2,15 @@ import FeedbackItem from "../FeedbackItem/FeedbackItem";
 import css from "./Feedback.module.css";
 
 import { AiTwotoneSmile, AiTwotoneFrown, AiTwotoneMeh } from "react-icons/ai";
-import { FaFaceGrinBeam, FaFaceFrown, FaFaceGrimace } from "react-icons/fa6";
+import { FaFaceGrinBeam, FaFaceFrown, FaFaceMeh } from "react-icons/fa6";
 
 const Feedback = ({ feedback, positiveFeedback }) => {
   const positiveFeedbackIcon =
     positiveFeedback > 70
-      ? FaFaceGrinBeam
+      ? { icon: FaFaceGrinBeam, color: "#8FD502" }
       : positiveFeedback > 40
-      ? FaFaceGrimace
-      : FaFaceFrown;
+      ? { icon: FaFaceMeh, color: "#EF9600" }
+      : { icon: FaFaceFrown, color: "#EA0001" };
   return (
     <>
       <ul className={css.feedbackList}>
@@ -35,7 +35,8 @@ const Feedback = ({ feedback, positiveFeedback }) => {
           <FeedbackItem
             name="Positive"
             value={positiveFeedback}
-            icon={positiveFeedbackIcon}
+            icon={positiveFeedbackIcon.icon}
+            color={positiveFeedbackIcon.color}
           />
         </li>
       </ul>
